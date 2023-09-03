@@ -1,144 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-button {
-    align-items: center;
-    appearance: none;
-    background-color: #fff;
-    border-radius: 24px;
-    border-style: none;
-    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-    box-sizing: border-box;
-    color: #3c4043;
-    cursor: pointer;
-    display: inline-flex;
-    fill: currentcolor;
-    font-family: "Google Sans",Roboto,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    height: 48px;
-    justify-content: center;
-    letter-spacing: .25px;
-    line-height: normal;
-    max-width: 100%;
-    overflow: visible;
-    padding: 2px 24px;
-    position: relative;
-    text-align: center;
-    text-transform: none;
-    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: auto;
-    will-change: transform,opacity;
-    z-index: 0;
-  }
-  
-  button:hover {
-    background: #F6F9FE;
-    color: #174ea6;
-  }
-  
-  button:active {
-    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
-    outline: none;
-  }
-  
-  button:focus {
-    outline: none;
-    border: 2px solid #4285f4;
-  }
-  
-  button:not(:disabled) {
-    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-  }
-  
-  button:not(:disabled):hover {
-    box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
-  }
-  
-  button:not(:disabled):focus {
-    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-  }
-  
-  button:not(:disabled):active {
-    box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
-  }
-  
-  button:disabled {
-    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-    background-color: black;
-    color:white;
-  }
-</style>
-<script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenilz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,900&display=swap');
+        .title{
+            text-align: center;
+            font-family: 'Barlow', sans-serif;
+            font-size: 80px;
+            color: white;
+        }
+        body{
+            background-color: black;
+        }
+        .float-container{
+            display: inline-block;
+        }
 
-function Change(id, src){
-    const element = document.getElementById(id)
-    if(!element) return console.log("%c Video Element Not Found", "color:red;font-size:30px;")
-    element.src = src
-    }
-window.onload = () =>{
-    let paths = [
-        "https://short.ink/RKMZbsbVq",
-        "https://short.ink/-T8PJ0bBb",
-        "https://short.ink/WyNcrkC-KC",
-        "https://short.ink/BcwAlVTRp",
-        "https://short.ink/ebu_A_Ehv"
-    ]
-    document.getElementById("ep1").disabled = true
-    Change("videoplayer", paths[0])
-    document.getElementById("ep1").onclick = ()=>{
-    Change("videoplayer", paths[0])
-    document.getElementById("ep1").disabled = true
-    document.getElementById("ep2").disabled = false
-    document.getElementById("ep3").disabled = false
-    document.getElementById("ep4").disabled = false
-    document.getElementById("ep5").disabled = false
-    }
-    document.getElementById("ep2").onclick = ()=>{
-    Change("videoplayer", paths[1])
-    document.getElementById("ep1").disabled = false
-    document.getElementById("ep2").disabled = true
-    document.getElementById("ep3").disabled = false
-    document.getElementById("ep4").disabled = false
-    document.getElementById("ep5").disabled = false
-    }
-    document.getElementById("ep3").onclick = ()=>{
-    Change("videoplayer", paths[2])
-    document.getElementById("ep1").disabled = false
-    document.getElementById("ep2").disabled = false
-    document.getElementById("ep3").disabled = true
-    document.getElementById("ep4").disabled = false
-    document.getElementById("ep5").disabled = false
-    }
-    document.getElementById("ep4").onclick = ()=>{
-    Change("videoplayer", paths[3])
-    document.getElementById("ep1").disabled = false
-    document.getElementById("ep2").disabled = false
-    document.getElementById("ep3").disabled = false
-    document.getElementById("ep4").disabled = true
-    document.getElementById("ep5").disabled = false
-    }
-    document.getElementById("ep5").onclick = ()=>{
-    Change("videoplayer", paths[4])
-    document.getElementById("ep1").disabled = false
-    document.getElementById("ep2").disabled = false
-    document.getElementById("ep3").disabled = false
-    document.getElementById("ep4").disabled = false
-    document.getElementById("ep5").disabled = true
-    }
-}
-</script>
+        .float-child{
+            margin-left: 100px;
+            margin-right: 100px;
+            float: left;
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        .float-child:hover{
+            transform: scale(1.1);
+        }
+        img{
+            width: 150px;
+            height: 200px;
+            border: 2px solid white;
+        }
+    </style>
 </head>
 <body>
-<center>
-<iframe id="videoplayer" width="640" height="360"frameborder="0" scrolling="0" allowfullscreen></iframe>
-<br>
-<button id="ep1">Episode 1</button>
-<button id="ep2">Episode 2</button>
-<button id="ep3">Episode 3</button>
-<button id="ep4">Episode 4</button>
-<button id="ep5">Episode 5</button>
-</center>
+    <h1 class="title">Jenilz</h1>
+    <div class="float-container">
+
+        <div class="float-child">
+            <a href="./scam-2003.html">
+            <img src="https://m.media-amazon.com/images/M/MV5BYTMyZWUxNTYtYTFkYi00M2Y1LWEzODQtYWJkM2M0YThhZDhmXkEyXkFqcGdeQXVyODAzNzAwOTU@._V1_.jpg" alt="scam-2003">
+            </a>
+        </div>
+        
+        <div class="float-child">
+            <a href="./movies/1917.html">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQedT5I8H5M81ZKk5q887MnDxH8aWWt9h26XThN1vtkMkS2bF" alt="1917">
+            </a>
+        </div>
+
+        <div class="float-child">
+            <a href="./movies/21-jump-street.html">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRx7ed96VPQVChZ8ZCh3RckZEtZZHvsZ0nvweXaAViqAP8v_bJU" alt="21 Jump Street">
+            </a>
+        </div>
+
+        <div class="float-child">
+            <a href="./movies/2001-space-odessey.html">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmmLZ7lXsw1WRy7c5qN3mka2e9ANSpHIG2INi53P6OVS8KyJo" alt="">
+            </a>
+        </div>
+        <div class="float-child">
+            <a href="./movies/apollo-13.html">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS0iGcM6Jsx2tLTN-1z0NrkzkvXoTbWQCZhDTi86DKbcsrWxiJh" alt="">
+            </a>
+        </div>
+        <div class="float-child">
+            <a href="./movies/avatar.html">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg" alt="">
+            </a>
+        </div>
+        <div class="float-child">
+            <a href="./movies/avatarww.html">
+                <img src="https://lumiere-a.akamaihd.net/v1/images/p_20cs_avatarwayofwater_mayupdate_1710_260aa445.jpeg" alt="">
+            </a>
+        </div>
+        <div class="float-child">
+            <a href="./movies/bolt.html">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDQyNDE5NjQ1N15BMl5BanBnXkFtZTcwMDExMTAwMg@@._V1_FMjpg_UX1000_.jpg" alt="">
+            </a>
+        </div>
+        <div class="float-child">
+            <a href="./movies/reinfield.html">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDIwYjVjMDMtOGYxMy00ZTRiLWE0YzktMjIwYmNhOGE4NGQ4XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_FMjpg_UX1000_.jpg" alt="">
+            </a>
+        </div>
+        <div class="float-child">
+            <a href="./movies/scream6.html">
+                <img src="https://m.media-amazon.com/images/M/MV5BODBjM2M4YTQtNmJlMS00MGU2LWI4ZGYtZTA1MzdmZDAyMjFkXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg" alt="">
+            </a>
+        </div>
+        <div class="float-child">
+            <a href="./movies/shazamfuryofgods.html">
+                <img src="https://m.media-amazon.com/images/M/MV5BNzJlM2NmZTItOGQyYS00MmE2LTkwZGUtNDFkNmJmZjRjZjcxXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_FMjpg_UX1000_.jpg" alt="">
+            </a>
+        </div>
+
+        <div class="float-child">
+            <a href="./movies/dogswayhome.html">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTCCeBj02uzKi0Jeci48tKxpBrUbW5AUZD8op51R8zsx6h3Mc8_" alt="">
+            </a>
+        </div>
+    </div>
 </body>
+</html>
