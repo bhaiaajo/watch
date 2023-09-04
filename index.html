@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jenilz</title>
+    <script src="./index.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,900&display=swap');
         .title{
@@ -30,91 +31,251 @@
         .float-child:hover{
             transform: scale(1.1);
         }
+        .float-child:active{
+            animation-duration: 3s;
+            animation-name: shake;
+            animation-iteration-count: 1;
+            animation-delay: 0s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes shake{
+
+            to{
+                display: flex;
+                justify-content: center;
+                align-items: center;    
+                transform: scale(10);
+            }
+
+        }
         img{
-            width: 150px;
-            height: 200px;
+            width: 250px;
+            height: 400px;
             border: 2px solid white;
         }
+        center{
+            float:center;
+        }
+        .back-button{     
+            display: inline-block;
+            outline: 0;
+            cursor: pointer;
+            border: 2px solid white;
+            border-radius: 3px;
+            color: #fff;
+            background: #000;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 28px;
+            padding: 12px 20px;
+            text-align:center;
+            transition-duration: .15s;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(.4,0,.2,1);
+                
+                
+        }
+        .back-button:hover{
+            color: #000;
+            background: rgb(255, 218, 87);
+        }
+
+        .epbutton {
+      align-items: center;
+      appearance: none;
+      background-color: #fff;
+      border-radius: 24px;
+      border-style: none;
+      box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+      box-sizing: border-box;
+      color: #3c4043;
+      cursor: pointer;
+      display: inline-flex;
+      fill: currentcolor;
+      font-family: "Google Sans",Roboto,Arial,sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      height: 48px;
+      justify-content: center;
+      letter-spacing: .25px;
+      line-height: normal;
+      max-width: 100%;
+      overflow: visible;
+      padding: 2px 24px;
+      position: relative;
+      text-align: center;
+      text-transform: none;
+      transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: auto;
+      will-change: transform,opacity;
+      z-index: 0;
+    }
+    
+    .epbutton:hover {
+      background: #F6F9FE;
+      color: #174ea6;
+    }
+    
+    .epbutton:active {
+      box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+      outline: none;
+    }
+    
+    .epbutton:focus {
+      outline: none;
+      border: 2px solid #4285f4;
+    }
+    
+    .epbutton:not(:disabled) {
+      box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+    }
+    
+    .epbutton:not(:disabled):hover {
+      box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+    }
+    
+    .epbutton:not(:disabled):focus {
+      box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+    }
+    
+    .epbutton:not(:disabled):active {
+      box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+    }
+    
+    .epbutton:disabled {
+      box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+      background-color: black;
+      color:white;
+    }
+                
+                
     </style>
 </head>
+<script>
+        function play(element){
+        const id = element.getAttribute("sid")
+        const iframe = document.getElementById("iframe")
+        iframe.src = "https://short.ink/" + id
+        iframe.style.display = "block"
+        document.getElementById("back").style.display = "block"
+        document.getElementById("main").style.display = "none"
+        }
+    function back(){
+        setTimeout(() =>{
+        const iframe = document.getElementById("iframe")
+        iframe.style.display = "none"
+        iframe.src = ""
+        document.getElementById("ep1").style.display = "none"
+        document.getElementById("ep2").style.display = "none"
+        document.getElementById("ep3").style.display = "none"
+        document.getElementById("ep4").style.display = "none"
+        document.getElementById("ep5").style.display = "none"
+        document.getElementById("back").style.display = "none"
+        document.getElementById("main").style.display = "inline-block"
+        },100)
+    }
+</script>
 <body>
     <h1 class="title">Jenilz</h1>
-    <div class="float-container">
-
+    <div class="float-container" id="main">
         <div class="float-child">
-            <a href="./scam-2003.html">
-            <img src="https://m.media-amazon.com/images/M/MV5BYTMyZWUxNTYtYTFkYi00M2Y1LWEzODQtYWJkM2M0YThhZDhmXkEyXkFqcGdeQXVyODAzNzAwOTU@._V1_.jpg" alt="scam-2003">
-            </a>
-        </div>
-        
-        <div class="float-child">
-            <a href="./movies/1917.html">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQedT5I8H5M81ZKk5q887MnDxH8aWWt9h26XThN1vtkMkS2bF" alt="1917">
-            </a>
-        </div>
-
-        <div class="float-child">
-            <a href="./movies/21-jump-street.html">
-                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRx7ed96VPQVChZ8ZCh3RckZEtZZHvsZ0nvweXaAViqAP8v_bJU" alt="21 Jump Street">
-            </a>
-        </div>
-
-        <div class="float-child">
-            <a href="./movies/2001-space-odessey.html">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmmLZ7lXsw1WRy7c5qN3mka2e9ANSpHIG2INi53P6OVS8KyJo" alt="">
-            </a>
+            <img src="https://m.media-amazon.com/images/M/MV5BYTMyZWUxNTYtYTFkYi00M2Y1LWEzODQtYWJkM2M0YThhZDhmXkEyXkFqcGdeQXVyODAzNzAwOTU@._V1_.jpg" onclick="series()">
         </div>
         <div class="float-child">
-            <a href="./movies/apollo-13.html">
-                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS0iGcM6Jsx2tLTN-1z0NrkzkvXoTbWQCZhDTi86DKbcsrWxiJh" alt="">
-            </a>
+            <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" sid="ml9JXT7bi" onclick="play(this)">
         </div>
         <div class="float-child">
-            <a href="./movies/avatar.html">
-                <img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg" alt="">
-            </a>
+            <img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" sid="JnTQcioYB" onclick="play(this)">
         </div>
         <div class="float-child">
-            <a href="./movies/avatarww.html">
-                <img src="https://lumiere-a.akamaihd.net/v1/images/p_20cs_avatarwayofwater_mayupdate_1710_260aa445.jpeg" alt="">
-            </a>
+            <img src="https://contentserver.com.au/assets/644357_hereditary_v8.jpg" sid="053Ct_kTk" onclick="play(this)">
         </div>
-        <div class="float-child">
-            <a href="./movies/bolt.html">
-                <img src="https://m.media-amazon.com/images/M/MV5BNDQyNDE5NjQ1N15BMl5BanBnXkFtZTcwMDExMTAwMg@@._V1_FMjpg_UX1000_.jpg" alt="">
-            </a>
-        </div>
-        <div class="float-child">
-            <a href="./movies/reinfield.html">
-                <img src="https://m.media-amazon.com/images/M/MV5BNDIwYjVjMDMtOGYxMy00ZTRiLWE0YzktMjIwYmNhOGE4NGQ4XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_FMjpg_UX1000_.jpg" alt="">
-            </a>
-        </div>
-        <div class="float-child">
-            <a href="./movies/scream6.html">
-                <img src="https://m.media-amazon.com/images/M/MV5BODBjM2M4YTQtNmJlMS00MGU2LWI4ZGYtZTA1MzdmZDAyMjFkXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg" alt="">
-            </a>
-        </div>
-        <div class="float-child">
-            <a href="./movies/shazamfuryofgods.html">
-                <img src="https://m.media-amazon.com/images/M/MV5BNzJlM2NmZTItOGQyYS00MmE2LTkwZGUtNDFkNmJmZjRjZjcxXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_FMjpg_UX1000_.jpg" alt="">
-            </a>
-        </div>
-
-        <div class="float-child">
-            <a href="./movies/dogswayhome.html">
-                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTCCeBj02uzKi0Jeci48tKxpBrUbW5AUZD8op51R8zsx6h3Mc8_" alt="">
-            </a>
-        </div>
-        <div class="float-child">
-            <a href="./movies/gravity.html">
-                <img src="https://www.movienewsletters.net/photos/120638R1.jpg" alt="">
-            </a>
-        </div>
-        <div class="float-child">
-            <a href="./movies/fall.html">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXdy5jkGY7WXNx4erreFU-slR5mIiG4SGYPBzgyzKla0fYGkQh" alt="">
-            </a>
-        </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BNTZjNzRjMTMtZDMzNy00Y2ZjLTg0OTAtZjVhNzYyZmJjOTljXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg" sid="sCvlKvTUT" onclick="play(this)">
     </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDc2ZmFiNWQ1XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_FMjpg_UX1000_.jpg" sid="49dGCBBSI" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg" sid="Bnn4VHvSrE" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/9e/Apollo_thirteen_movie.jpg" sid="-WEj5vkKr" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg" sid="4aoTKb3Z9" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" sid="HmuyE5e8t" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BNDQyNDE5NjQ1N15BMl5BanBnXkFtZTcwMDExMTAwMg@@._V1_FMjpg_UX1000_.jpg" sid="BfXZ14Yz4" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BYmFhYjVhOWItNjhhMC00NDM5LTgzNmYtNTNkNGI3NDgxZGIwXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg" sid="8t_vhx2vC" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BNGI3MWYwYjItNzZhYi00ZWIzLTkyMzYtN2JmNjg3ODg1NTg4XkEyXkFqcGdeQXVyMTMwMDA5ODU3._V1_FMjpg_UX1000_.jpg" sid="P26wpuoQ6J" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BNjE5MzYwMzYxMF5BMl5BanBnXkFtZTcwOTk4MTk0OQ@@._V1_FMjpg_UX1000_.jpg" sid="g3mllq55z" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BNDIwYjVjMDMtOGYxMy00ZTRiLWE0YzktMjIwYmNhOGE4NGQ4XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_FMjpg_UX1000_.jpg" sid="NsNDG75XY" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BODBjM2M4YTQtNmJlMS00MGU2LWI4ZGYtZTA1MzdmZDAyMjFkXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg" sid="liYtzfxGm" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BNzJlM2NmZTItOGQyYS00MmE2LTkwZGUtNDFkNmJmZjRjZjcxXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg" sid="Qaou0fr4d" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BMWFmNWJhNjAtNjI1MS00Yzg5LTg5NGQtMmMyMDAxN2I5ZDg4XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg" sid="q7cKT-BZT">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTQyOTM4MDMxN15BMl5BanBnXkFtZTcwODg5NTQzMw@@._V1_.jpg" sid="42EjpTOG_" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BMGZjZDE2NjUtMzVkNy00N2UyLTg5MjYtYzY1ZmM1YWY3ZTZmXkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_.jpg" sid="14_N_SV9p" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/07/Night_at_the_Museum_Secret_of_the_Tomb_poster.jpg" sid="2JM_K5d4s" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Mr_Peabody_%26_Sherman_Poster.JPG/220px-Mr_Peabody_%26_Sherman_Poster.JPG" sid="Vd4VJu0rN" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/Moneyball_Poster.jpg" sid="6weOrgGyb" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BM2Q5ODdmOGEtMThiMS00MjM3LWJkZjYtN2ZlNGI0ZGQxOTdjXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg" sid="ETUGCyvwM" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://static.wikia.nocookie.net/filmguide/images/d/d3/Life_ver3_xlg.jpg/revision/latest?cb=20170911090853" sid="eqhi5gTOM" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg" sid="SN-dv2bCh" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BMjE2NDkxNTY2M15BMl5BanBnXkFtZTgwMDc2NzE0MTI@._V1_.jpg" sid="pjVgFSm1G" onclick="play(this)">
+    </div>
+    <div class="float-child">
+        <img src="https://m.media-amazon.com/images/M/MV5BMDg2YzI0ODctYjliMy00NTU0LTkxODYtYTNkNjQwMzVmOTcxXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_.jpg" sid="crNY0Q37P" onclick="play(this)">
+    </div>
+</div>
+    <button id="back" class="back-button" onclick="back()" style="display:none;">Back</button>
+    <center>   
+        <iframe id="iframe" width="1000" height="500" frameborder="0" scrolling="0" allowfullscreen style="display:none;"></iframe> 
+        <button id="ep1" class="epbutton" style="display:none;">Episode 1</button>
+        <button id="ep2" class="epbutton"style="display:none;">Episode 2</button>
+        <button id="ep3" class="epbutton"style="display:none;">Episode 3</button>
+        <button id="ep4" class="epbutton"style="display:none;">Episode 4</button>
+        <button id="ep5" class="epbutton" style="display:none;">Episode 5</button>
+    </center>
 </body>
 </html>
