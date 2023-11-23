@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GSJRJYKS0"></script>
+    <script src="./index.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-2GSJRJYKS0');
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jenilz</title>
-    <script src="./index.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,900&family=Rajdhani:wght@300&display=swap');
         .title{
@@ -167,11 +166,43 @@
       background-color: black;
       color:white;
     }
+
+    .loader {
+    border: 16px solid #fed985; /* Light grey */
+    border-top: 16px solid #61b5cb; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 800ms infinite linear;
+    align-items: center;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); opacity: 100%;}
+    50%{opacity: 30%;}
+    100% { transform: rotate(360deg); display: none;}
+  }
+
+  .loading{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    align-items: center;
+}
                 
                 
     </style>
 </head>
 <script>
+
+    window.onload = () =>{
+
+        document.getElementById("loader").style.display = "none"
+        document.getElementById("main").style.display = "block"
+
+    }
+
         function play(element){
         const id = element.getAttribute("sid")
         const iframe = document.getElementById("iframe")
@@ -196,6 +227,14 @@
     }
 </script>
 <body>
+    <center>
+    <div id="initial">
+        <div class="loader" id="loader"></div>
+        <br>
+        <h1 class="loading">Loading Assests Please Wait</h1>
+    </div>
+    </center>
+<div id="main" style="display: none;">
     <div>
     <h1 class="title">Jenilz</h1>
     <h1 class="sub">The Home of Movies</h1>
@@ -343,5 +382,6 @@
         <button id="ep4" class="epbutton"style="display:none;">Episode 4</button>
         <button id="ep5" class="epbutton" style="display:none;">Episode 5</button>
     </center>
+</div>
 </body>
 </html>
